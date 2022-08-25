@@ -2,7 +2,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int gappx     = 5;        /* gaps between windows */
+static const unsigned int gappx     = 0;        /* gaps between windows */
 
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -81,10 +81,10 @@ static Key keys[] = {
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
+	{ MODKEY,                       XK_s,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
-	{ MODKEY,                       XK_b,      shiftview,      {.i = -1 } },
-	{ MODKEY,                       XK_n,      shiftview,      {.i = +1 } },
+	{ MODKEY,                       XK_u,      shiftview,      {.i = -1 } },
+	{ MODKEY,                       XK_i,      shiftview,      {.i = +1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
