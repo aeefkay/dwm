@@ -43,7 +43,7 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.5; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
@@ -99,6 +99,22 @@ static Key keys[] = {
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
+	{ Mod1Mask,                       XK_j,   moveresize,     {.v = "0x 25y 0w 0h" } },
+	{ Mod1Mask,                       XK_k,     moveresize,     {.v = "0x -25y 0w 0h" } },
+	{ Mod1Mask,                       XK_l,  moveresize,     {.v = "25x 0y 0w 0h" } },
+	{ Mod1Mask,                       XK_h,   moveresize,     {.v = "-25x 0y 0w 0h" } },
+	{ Mod1Mask|ShiftMask,             XK_j,   moveresize,     {.v = "0x 0y 0w 25h" } },
+	{ Mod1Mask|ShiftMask,             XK_k,     moveresize,     {.v = "0x 0y 0w -25h" } },
+	{ Mod1Mask|ShiftMask,             XK_l,  moveresize,     {.v = "0x 0y 25w 0h" } },
+	{Mod1Mask|ShiftMask,             XK_h,   moveresize,     {.v = "0x 0y -25w 0h" } },
+	{ MODKEY|ControlMask,           XK_k,     moveresizeedge, {.v = "t"} },
+	{ MODKEY|ControlMask,           XK_j,   moveresizeedge, {.v = "b"} },
+	{ MODKEY|ControlMask,           XK_h,   moveresizeedge, {.v = "l"} },
+	{ MODKEY|ControlMask,           XK_l,  moveresizeedge, {.v = "r"} },
+	{ MODKEY|ControlMask|ShiftMask, XK_k,     moveresizeedge, {.v = "T"} },
+	{ MODKEY|ControlMask|ShiftMask, XK_j,   moveresizeedge, {.v = "B"} },
+	{ MODKEY|ControlMask|ShiftMask, XK_h,   moveresizeedge, {.v = "L"} },
+	{ MODKEY|ControlMask|ShiftMask, XK_l,  moveresizeedge, {.v = "R"} },
 	{ MODKEY|ShiftMask,             XK_f,      togglefullscr,  {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
